@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .calculator {
+            width: 180px;
+            border: 4px solid #ffffff;
+            background-color: #d6d6d6;
+            padding: 15px;
+            border-radius: 4%;
+
+        }
+        button#calculate {
+            width: 48%;
+        }
+        input [type="number"]{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        input#number1 {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 91%;
+        }
+        input#number2 {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 91%;
+        }
+
+        button {
+            width: 48%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        input#result{
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 91%;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="number" id="number1" placeholder="Masukkan Nilai">
+        <input type="number" id="number2" placeholder="Masukkan Nilai">
+
+        <button onclick="calculate('+')" id="calculate">+</button>
+        <button onclick="calculate('-')" id="calculate">-</button>
+        <button onclick="calculate('*')" id="calculate">*</button>
+        <button onclick="calculate('/')" id="calculate">/</button>
+
+        <button onclick="clearInput()">AC</button>
+        <input type="number" id="result" readonly placeholder=" Hasil">
+    </div>
+    <script>
+        function calculate(operator) {
+            let num1 = parseFloat(document.getElementById('number1').value);
+            let num2 = parseFloat(document.getElementById('number2').value);
+            let result;
+
+            switch (operator){
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                default:
+                    break;
+            }
+            document.getElementById('result').value = result;
+        }
+        function clearInput() {
+            document.getElementById('number1').value = '';
+            document.getElementById('number2').value = '';
+            document.getElementById('result').value = '';
+        }
+    </script>
+</body>
+</html>
